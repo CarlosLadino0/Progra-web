@@ -1,10 +1,3 @@
-<h1>Carlos Ladino Ocampo</h1>
-
-<div *ngFor="let n of people">
-  
-  <app-card 
-  [people] = "n">
-
-
-  </app-card>
+<div *ngFor="let person of people">
+  <app-card [people]="person"></app-card>
 </div>

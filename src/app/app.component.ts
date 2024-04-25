@@ -16,7 +16,7 @@ export class AppComponent {
   people = [
     {
     name: "Maria",
-    country: "Colombia"
+    country: "Colombia",
     },
     {
     name: "Alonso",
