@@ -1,0 +1,10 @@
+.container{
+    display:flex;
+    justify-content: center;
+ 
+}
+.card{
+    background-color: rgba(16, 228, 119, 0.815);
+    margin: 15px;
+    padding: 120px;
+}

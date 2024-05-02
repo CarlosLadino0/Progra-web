@@ -3,6 +3,8 @@ import { RouterOutlet } from '@angular/router';
 import { CardComponent } from './card/card.component';
 import { NgForOf } from '@angular/common';
 import { countReset } from 'console';
+import { ApiService } from './services/api.service';
+
 
 @Component({
   selector: 'app-root',
@@ -35,4 +37,11 @@ export class AppComponent {
     country: "Argentina"
     }
 ]
+constructor(private api:ApiService){ }
+ngOnInit(){
+  this.api.getAllCharacters().subscribe((ans:any)=>{
+    this.people=ans.results
+    console.log(ans);
+  }) 
+}
 }
