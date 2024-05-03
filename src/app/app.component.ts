@@ -13,35 +13,16 @@ import { ApiService } from './services/api.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+
 export class AppComponent {
-  title = 'Progra-web';
-  people = [
-    {
-    name: "Maria",
-    country: "Colombia",
-    },
-    {
-    name: "Alonso",
-    country: "Perú"
-    },
-    {
-    name: "Andres",
-    country: "Ecuador"
-    },
-    {
-    name: "Carlos",
-    country: "Panama"
-    },
-    {
-    name: "Beto",
-    country: "Argentina"
-    }
-]
-constructor(private api:ApiService){ }
-ngOnInit(){
-  this.api.getAllCharacters().subscribe((ans:any)=>{
-    this.people=ans.results
-    console.log(ans);
-  }) 
-}
+  people: any[] | undefined;
+  title: any;
+     
+  constructor(private api:ApiService){ }
+  ngOnInit(){
+    this.api.getAllCharacters().subscribe((ans:any)=>{
+      this.people=ans.results
+      console.log(ans);
+    }) 
+  }
 }
