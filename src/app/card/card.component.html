@@ -7,8 +7,8 @@
     </div>
     
     <div class="button-container">
-      <button class="btn btn-primary edit-button">Editar</button>
-      <button class="btn btn-danger delete-button">Eliminar</button>
+      <button class="btn btn-primary edit-button" (click)="edit(person)">Editar</button>
+      <button class="btn btn-danger delete-button" (click)="delete(person.id)">Eliminar</button>
     </div>
   </div>
 </div>

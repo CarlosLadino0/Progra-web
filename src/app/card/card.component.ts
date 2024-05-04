@@ -12,4 +12,16 @@ import { Component, Input, input } from '@angular/core';
 export class CardComponent {
   @Input()
   person: any;
+  delete (
+    id: number
+  )
+  {
+    console.log(id);
+  }
+  edit (
+    person: any
+  )
+  {
+    console.log(person);
+  }
 }
