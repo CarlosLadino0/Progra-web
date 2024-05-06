@@ -11,7 +11,7 @@ import { Component, Input, input } from '@angular/core';
 })
 export class CardComponent {
   @Input()
-  person: any;
+  product: any;
   delete (
     id: number
   )
@@ -19,9 +19,9 @@ export class CardComponent {
     console.log(id);
   }
   edit (
-    person: any
+    product: any
   )
   {
-    console.log(person);
+    console.log(product);
   }
 }

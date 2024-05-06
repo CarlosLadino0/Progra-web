@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
-const URL= "https://rickandmortyapi.com/api/character"
+const URL= "https://api.escuelajs.co/api/v1/products"
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ const URL= "https://rickandmortyapi.com/api/character"
 export class ApiService {
 
   constructor(private http: HttpClient) { }
-  getAllCharacters(){
-  return this.http.get(URL);
+  getAllProducts(): Observable<any> {
+    return this.http.get(URL);
   }
 }
