@@ -20,6 +20,7 @@ import { NgIf } from '@angular/common';
 export class AppComponent implements OnInit {
   apiUrl = 'https://api.escuelajs.co/api/v1/products';
   products: any[] | undefined;
+  title = 'ProyectoApis';
 
   constructor(private http: HttpClient) { }
 
