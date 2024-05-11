@@ -6,27 +6,53 @@ import { countReset } from 'console';
 import { ApiService } from './services/api.service';
 import { HttpClient } from '@angular/common/http';
 import { NgIf } from '@angular/common';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CardComponent, NgForOf, NgIf], 
+  imports: [RouterOutlet, CardComponent, NgForOf, NgIf, ReactiveFormsModule], 
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
-
 })
 
 export class AppComponent implements OnInit {
-  apiUrl = 'https://api.escuelajs.co/api/v1/products';
+  apiUrl = 'http://localhost:3000/products';
   products: any[] | undefined;
-  title = 'ProyectoApis';
+  tittle = 'ProyectoApis';
+  product: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private apiservice: ApiService) { }
+
+  price = new FormControl('');
+  description = new FormControl('');
+  title = new FormControl('');
+  categoryId = new FormControl('');
+  images = new FormControl('');
+
 
   ngOnInit(): void {
-    this.http.get<any[]>(this.apiUrl).subscribe(data => {
+    this.apiservice.getAllProducts().subscribe(data => {
       this.products = data;
     });
   }
+
+  onSummit(){
+    const NewProduct = {
+      title: this.title.value,
+      price: this.price.value,
+      description: this.description.value,
+      images: ['https://placeimg.com/640/480/any'],
+      categoryId: 1
+    }
+    this.apiservice.createProduct(NewProduct).subscribe((data: any) => {
+      console.log(data);
+    })
+  }
+  createProduct (
+    product: any
+  )
+  {
+    console.log(product);}
 }

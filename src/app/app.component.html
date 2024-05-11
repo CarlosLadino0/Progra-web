@@ -1,6 +1,18 @@
 <div class="titulo">
   <h5>PRODUCTOS</h5>
 </div>
+<div class="forms">
+  <button class="btt-agregar" (click)="onSummit()">Nuevo Producto</button> <p></p>
+  <label for="name">Name: 
+  <input class="border" type="text" name="" id="name" [formControl]= "title" >
+  </label>
+  <label for="name">Precio: 
+    <input class="border" type="text" name="" id="price" [formControl]= "price" >
+    </label>
+    <label for="name">Descripción: 
+    <input class="border" type="text" name="" id="description" [formControl]= "description" >
+    </label>
+  </div>
 <div class="container"*ngFor="let product of products">
   <ng-container *ngIf="product.id">
     <div class="card">
