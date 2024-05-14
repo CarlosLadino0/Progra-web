@@ -8,18 +8,17 @@ import { HttpClient } from '@angular/common/http';
 import { NgIf } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CardComponent, NgForOf, NgIf, ReactiveFormsModule], 
+  imports: [RouterOutlet, CardComponent, NgForOf, NgIf, ReactiveFormsModule,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 
 export class AppComponent implements OnInit {
   apiUrl = 'http://localhost:3000/products';
-  products: any[] | undefined;
+  products: any[] = [];
   tittle = 'ProyectoApis';
   product: any;
 
@@ -48,11 +47,7 @@ export class AppComponent implements OnInit {
     }
     this.apiservice.createProduct(NewProduct).subscribe((data: any) => {
       console.log(data);
+      this.product.push(data);
     })
   }
-  createProduct (
-    product: any
-  )
-  {
-    console.log(product);}
 }

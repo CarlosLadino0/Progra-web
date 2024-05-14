@@ -9,7 +9,6 @@ import { ApiService } from '../services/api.service';
   imports: [ReactiveFormsModule],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
-  
 })
 export class CardComponent {
 
