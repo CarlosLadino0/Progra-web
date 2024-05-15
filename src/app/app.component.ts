@@ -22,14 +22,13 @@ export class AppComponent implements OnInit {
   tittle = 'ProyectoApis';
   product: any;
 
-  constructor(private apiservice: ApiService) { }
-
   price = new FormControl('');
   description = new FormControl('');
   title = new FormControl('');
   categoryId = new FormControl('');
   images = new FormControl('');
 
+  constructor(private apiservice: ApiService) { }
 
   ngOnInit(): void {
     this.apiservice.getAllProducts().subscribe(data => {
