@@ -12,7 +12,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   deleteP(id:number) {
-    return this.http.delete(`https://api.escuelajs.co/api/v1/products/${id}`)
+    return this.http.delete(`${URL}/${id}`)
   }
   
   getAllProducts(): Observable<any> {
@@ -21,5 +21,9 @@ export class ApiService {
 
   createProduct(products: any) {
     return this.http.post(URL, products);
+  }
+
+  editProduct(products:any, id:number) {
+    return this.http.put(`${URL}/${id}`, products);
   }
 }

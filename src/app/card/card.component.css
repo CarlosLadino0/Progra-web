@@ -1,38 +1,38 @@
-.btn {
-    background-color: #4CAF50; 
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    margin: 5px 3px;
-    cursor: pointer;
-    border-radius: 20px;
-  }
-  
-  .btn:hover {
-    opacity: 0.8;
-  }
-  
-  .edit-button {
-    background-color: #008CBA; 
-  }
-  
-  .delete-button {
-    background-color: #f44336; 
-  }
-  
-  .attribute-container {
-    display: table ;
-    padding: 100 px; 
-    margin-bottom: 40px; 
-    background-color: #ffffff; 
-    border-radius: 10px;
-  }
+.boton {
+  background-color: #4CAF50; 
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 5px 3px;
+  cursor: pointer;
+  border-radius: 20px;
+}
 
-  .card-img {
-    width: 300px;
-    height: 300px;
-  }
+.boton:hover {
+  opacity: 0.8;
+}
+
+.edit-button {
+  background-color: #008CBA; 
+}
+
+.delete-button {
+  background-color: #f44336; 
+}
+
+.carta_container {
+  display: table ;
+  padding: 10px; 
+  margin-bottom: 40px; 
+  background-color: #ffffff; 
+  border-radius: 10px;
+}
+
+.imagenCarta {
+  width: 250px;
+  height: 250px;
+}
