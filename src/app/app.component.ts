@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   apiUrl = 'http://localhost:3000/products';
   products: any[] = [];
   tittle = 'ProyectoApis';
-  product: any;
+  product: any = [];
 
   price = new FormControl('');
   description = new FormControl('');
