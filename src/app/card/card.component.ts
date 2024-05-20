@@ -9,7 +9,7 @@ import { ApiService } from '../services/api.service';
   imports: [ReactiveFormsModule],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
-  
+
 })
 export class CardComponent {
 
@@ -30,16 +30,16 @@ export class CardComponent {
 
   constructor(private apiservice: ApiService) { }
 
-  deleteProduct (id: number) {
+  deleteProduct(id: number) {
     console.log('Usted está eliminando el producto: ', this.product.id);
 
     this.apiservice.deleteP(this.product.id)
       .subscribe((response: any) => {
         console.log('Producto eliminado correctamente:', response);
-        
+
       }, (error: any) => {
         console.error('Error al eliminar producto:', error);
-      }); 
+      });
   }
 
   openEditModal() {
