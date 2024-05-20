@@ -23,7 +23,7 @@ export class ApiService {
     return this.http.post(URL, products);
   }
 
-  editProduct(products:any, id:number) {
-    return this.http.put(`${URL}/${id}`, products);
+  updateProduct(id: number, product: any) {
+    return this.http.put(`${URL}/${id}`, product);
   }
 }

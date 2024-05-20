@@ -1,5 +1,5 @@
 import { Component, Input, input } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, ReactiveFormsModule, Validators, FormGroup } from '@angular/forms';
 import { ApiService } from '../services/api.service';
 
 
@@ -22,6 +22,12 @@ export class CardComponent {
   titulo = new FormControl('');
   images = new FormControl('');
 
+  editForm = new FormGroup({
+    title: new FormControl('', Validators.required),
+    price: new FormControl('', Validators.required),
+    description: new FormControl('', Validators.required)
+  });
+
   constructor(private apiservice: ApiService) { }
 
   deleteProduct (id: number) {
@@ -36,13 +42,37 @@ export class CardComponent {
       }); 
   }
 
-  edit (product: any) {
-    const NewProduct = {
-      title: this.titulo,
-      price: this.price,
-      description: this.description,
-      images: ['https://placeimg.com/640/480/any'],
-      categoryId: 1
+  openEditModal() {
+    this.editForm.setValue({
+      title: this.product.title,
+      price: this.product.price,
+      description: this.product.description
+    });
+    const modal = document.getElementById('editModal');
+    if (modal) {
+      modal.style.display = 'block';
     }
+  }
+
+  closeEditModal() {
+    const modal = document.getElementById('editModal');
+    if (modal) {
+      modal.style.display = 'none';
+    }
+  }
+
+  saveChanges() {
+    const updatedProduct = {
+      ...this.product,
+      ...this.editForm.value
+    };
+
+    this.apiservice.updateProduct(this.product.id, updatedProduct).subscribe(response => {
+      console.log('Producto actualizado:', response);
+      Object.assign(this.product, updatedProduct);
+      this.closeEditModal();
+    }, error => {
+      console.error('Error al actualizar el producto:', error);
+    });
   }
 }
