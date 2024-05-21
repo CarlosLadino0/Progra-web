@@ -11,10 +11,13 @@
     </label>
     <label for="name">Descripción: 
     <input class="border" type="text" name="" id="description" [formControl]= "description" >
+    <label for="name">Imagen:
+      <input type="text" name="" id="images" [formControl]= "images">
+    </label>
     </label>
     <label for="name">Categoría: <input class="border" type="text" name="" id="categoryId" [formControl]= "categoryId">
     </label>
-    
+
   </div>
 <div class="contenedor"*ngFor="let product of products">
   <ng-container *ngIf="product.id">
