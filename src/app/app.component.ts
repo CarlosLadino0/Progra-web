@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CardComponent } from './card/card.component';
 import { NgForOf } from '@angular/common';
-import { countReset } from 'console';
 import { ApiService } from './services/api.service';
-import { HttpClient } from '@angular/common/http';
 import { NgIf } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
@@ -33,6 +31,43 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.apiservice.getAllProducts().subscribe(data => {
       this.products = data;
+      data.map((item: any) => {
+
+
+        let imageStringify = JSON.stringify(item.images); // convertimos el array de imagenes a string
+        
+        
+        let imageNoGarbage = imageStringify
+        
+        
+        .substring(2, imageStringify.length - 2)
+        
+        
+        .replaceAll('\\', ' ')
+        
+        
+        .replaceAll('""', '"')
+        
+        
+        .replaceAll('" "', '"')
+        
+        
+        .replaceAll(' ', '');
+        
+        
+        try {
+        
+        
+        item.images = JSON.parse(imageNoGarbage);
+        
+        
+        item.imagesActual = item.images[0];
+        
+        
+        } catch (e) {}
+        
+        
+        });
     });
   }
 
@@ -42,7 +77,7 @@ export class AppComponent implements OnInit {
       price: this.price.value,
       description: this.description.value,
       images: ['https://placeimg.com/640/480/any'],
-      categoryId: 1
+      categoryId: this.categoryId.value
     }
     this.apiservice.createProduct(NewProduct).subscribe((data: any) => {
       console.log(data);
