@@ -76,7 +76,7 @@ export class AppComponent implements OnInit {
       title: this.title.value,
       price: this.price.value,
       description: this.description.value,
-      images: ['https://placeimg.com/640/480/any'],
+      images: [this.images.value],
       categoryId: this.categoryId.value
     }
     this.apiservice.createProduct(NewProduct).subscribe((data: any) => {
