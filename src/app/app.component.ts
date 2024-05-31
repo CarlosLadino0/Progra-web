@@ -33,40 +33,18 @@ export class AppComponent implements OnInit {
       this.products = data;
       data.map((item: any) => {
 
-
         let imageStringify = JSON.stringify(item.images); // convertimos el array de imagenes a string
-        
-        
         let imageNoGarbage = imageStringify
         
-        
         .substring(2, imageStringify.length - 2)
-        
-        
         .replaceAll('\\', ' ')
-        
-        
         .replaceAll('""', '"')
-        
-        
         .replaceAll('" "', '"')
-        
-        
         .replaceAll(' ', '');
-        
-        
         try {
-        
-        
         item.images = JSON.parse(imageNoGarbage);
-        
-        
         item.imagesActual = item.images[0];
-        
-        
         } catch (e) {}
-        
-        
         });
     });
   }

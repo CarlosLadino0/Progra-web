@@ -2,27 +2,28 @@
   <h5>PRODUCTOS</h5>
 </div>
 <div class="formulario">
-  <button class="btt-agregar" (click)="onSummit()">Nuevo Producto</button> <p></p>
-  <label for="name">Name: 
-  <input class="border" type="text" name="" id="name" [formControl]= "title" >
+  <button class="btt-agregar" (click)="onSummit()">Nuevo Producto</button>
+  <p></p>
+  <label for="name">Name:
+    <input class="border" type="text" name="" id="name" [formControl]="title">
   </label>
-  <label for="name">Precio: 
-    <input class="border" type="text" name="" id="price" [formControl]= "price" >
-    </label>
-    <label for="name">Descripción: 
-    <input class="border" type="text" name="" id="description" [formControl]= "description" >
+  <label for="name">Precio:
+    <input class="border" type="text" name="" id="price" [formControl]="price">
+  </label>
+  <label for="name">Descripción:
+    <input class="border" type="text" name="" id="description" [formControl]="description">
     <label for="name">Imagen:
-      <input type="text" name="" id="images" [formControl]= "images">
+      <input type="text" name="" id="images" [formControl]="images">
     </label>
-    </label>
-    <label for="name">Categoría: <input class="border" type="text" name="" id="categoryId" [formControl]= "categoryId">
-    </label>
+  </label>
+  <label for="name">Categoría: <input class="border" type="text" name="" id="categoryId" [formControl]="categoryId">
+  </label>
 
-  </div>
-<div class="contenedor"*ngFor="let product of products">
+</div>
+<div class="contenedor" *ngFor="let product of products">
   <ng-container *ngIf="product.id">
     <div class="carta">
-    <app-card [product] = "product" ></app-card>
-    </div> 
+      <app-card [product]="product"></app-card>
+    </div>
   </ng-container>
 </div>
