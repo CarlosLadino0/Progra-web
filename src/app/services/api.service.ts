@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 const URL = "http://localhost:3000/products";
 
@@ -25,5 +26,10 @@ export class ApiService {
 
   updateProduct(id: number, product: any) {
     return this.http.put(`${URL}/${id}`, product);
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    console.error('An error occurred:', error.message);
+    return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 }
